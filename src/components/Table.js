@@ -1,20 +1,28 @@
 import React from "react"
 
-function Table() {
-    return (<div>
-        <table>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Type</th>
-                    <th>When?</th>
-                    <th>Where?</th>
-                    <th>Cost?</th>
-                </tr>
-
-            </thead>
-        </table>
-    </div>)
+class Table extends React.Component {
+    constructor() {
+        super()
+        this.state={}
+    }
+    render () {
+        return (<div>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Type</th>
+                        <th>When?</th>
+                        <th>Where?</th>
+                        <th>Cost?</th>
+                    </tr>
+                </thead>
+                <tbody>
+    
+                </tbody>
+            </table>
+        </div>)
+    }
 }
 
 export default Table

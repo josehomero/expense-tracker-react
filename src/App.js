@@ -7,6 +7,8 @@ import Table from './components/Table';
 import Button from './components/Button';
 
 function App() {
+  const button = document.getElementById("button")
+console.log(button)
   return (
     <div className="App">
       <Header />

@@ -1,8 +1,9 @@
 import React from "react"
 
 function Button () {
+
     return (<div>
-    <button id="button">Submit</button>
+    <button className="button" onClick={console.log('clicked')}>Submit</button>
     </div>)
 }
 
