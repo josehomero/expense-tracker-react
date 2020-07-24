@@ -3,20 +3,25 @@ import React from "react"
 class Form extends React.Component {
     constructor() {
         super()
-        this.state={}
+        this.state={
+            type:"",
+            date:"",
+            description:"",
+            amount:""
+        }
     }
     render () {
         return (<div>
             <form>
-                <select id="input-item" name="type">
+                <select className="input-item" name="type">
                     <option value=''>Type</option>
                     <option value="card">Card</option>
                     <option value="cash">Cash</option>
                     <option value="other">Other</option>
                 </select>
-                <input name="date" type="text" placeholder="When?" />
-                <input name="description" type="text" placeholder="Where?" />
-                <input name="amount" type="text" placeholder="Cost?" />
+                <input className="date" type="text" placeholder="When?" />
+                <input className="description" type="text" placeholder="Where?" />
+                <input className="amount" type="text" placeholder="Cost?" />
             </form>
         </div>)
     }

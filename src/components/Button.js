@@ -3,7 +3,7 @@ import React from "react"
 function Button () {
 
     return (<div>
-    <button className="button" onClick={console.log('clicked')}>Submit</button>
+    <button onClick={function() {console.log('I was clicked')}}>Submit</button>
     </div>)
 }
 
