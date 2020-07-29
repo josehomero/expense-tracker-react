@@ -4,9 +4,8 @@ import './App.css';
 import Header from './components/Header';
 import Form from './components/Form';
 import Table from './components/Table';
-import Button from './components/Button';
 
-function App() {
+class App extends React.Component {
   state = {
     form: {
       type:"",
@@ -15,14 +14,20 @@ function App() {
       amount:""
     }
   }
+
+  submitted () {
+    console.log("submitted")
+  }
+
+  render(){
   return (
     <div className="App">
       <Header />
       <Form />
-      <Button />
+      <button onClick={this.submitted}>Submit</button>
       <Table />
     </div>
-  );
+  )};
 }
 
 export default App;
