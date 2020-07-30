@@ -6,13 +6,14 @@ import Header from './components/Header';
 import Table from './components/Table';
 
 class App extends React.Component {
-  state = {
-    form: {
+  constructor() {
+    super()
+    this.state= {form: {
       type: "",
       date: "",
       description: "",
       amount: ""
-    }
+    }}
   }
 
   submitted() {
