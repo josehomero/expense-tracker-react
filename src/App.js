@@ -18,8 +18,9 @@ class App extends React.Component {
     }
   }
 
-  submitted() {
-console.log(this.changeAmount, this.changeDate, this.changeDescription, this.changeType)
+  submitted = (e) => {
+    e.preventDefault();
+    console.log(this.state.form);
   }
 
   changeDescription = (e) => {
@@ -65,7 +66,7 @@ console.log(this.changeAmount, this.changeDate, this.changeDescription, this.cha
       <div className="App">
         <Header />
 
-        <form>
+        <form onSubmit={this.submitted}>
           <select name="type" value={this.state.form.type} onChange={this.changeType} >
             <option value=''>Type</option>
             <option value="card">Card</option>
@@ -75,9 +76,10 @@ console.log(this.changeAmount, this.changeDate, this.changeDescription, this.cha
           <input name="date" type="text" placeholder="Date?" value={this.state.form.date} onChange={this.changeDate} />
           <input name="description" type="text" placeholder="Where?" value={this.state.form.description} onChange={this.changeDescription} />
           <input name="amount" type="text" placeholder="Amount?" value={this.state.form.amount} onChange={this.changeAmount} />
+          <button >Submit</button>
         </form>
 
-        <button onChange={this.submitted}>Submit</button>
+
         <Table />
       </div>
     )
