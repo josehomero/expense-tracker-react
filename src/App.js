@@ -2,8 +2,9 @@ import React from 'react';
 import './App.css';
 
 import Header from './components/Header';
+import TrAndTd from './components/TrAndTd';
 
-import Table from './components/Table';
+//import TrAndTd from './components/TrAndTd';
 
 class App extends React.Component {
   constructor() {
@@ -14,13 +15,25 @@ class App extends React.Component {
         date: "",
         description: "",
         amount: ""
-      }
+      },
+      expense: null
     }
   }
 
   submitted = (e) => {
     e.preventDefault();
     console.log(this.state.form);
+
+    const expense = {
+      type: this.state.form.type,
+      date: this.state.form.date,
+      description: this.state.form.description,
+      amount: this.state.form.amount
+    }
+
+    this.setState({
+      expense: expense
+    })
   }
 
   changeDescription = (e) => {
@@ -40,7 +53,7 @@ class App extends React.Component {
       }
     })
   }
-  
+
   changeDate = (e) => {
     this.setState({
       form: {
@@ -79,8 +92,22 @@ class App extends React.Component {
           <button >Submit</button>
         </form>
 
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Type</th>
+              <th>When?</th>
+              <th>Where?</th>
+              <th>Cost?</th>
+            </tr>
+          </thead>
+          <tbody>
 
-        <Table />
+          </tbody>
+        </table>
+
+        {this.state.expense ? <TrAndTd type={this.state.expense.type} date={this.state.expense.date} description={this.state.expense.description} amount={this.state.expense.amount}/> : null}
       </div>
     )
   };
