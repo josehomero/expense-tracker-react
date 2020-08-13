@@ -3,7 +3,7 @@ import React from "react"
 class Table extends React.Component {
 
     render () {
-        console.log(this.props.expenses)
+        console.log(typeof this.props.expenses)
 
         return (<div>
                     <table>
