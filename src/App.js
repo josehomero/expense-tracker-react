@@ -22,7 +22,7 @@ class App extends React.Component {
 
   submitted = (e) => {
     e.preventDefault();
-    console.log(this.state.form);
+ 
 
     const expense = {
       type: this.state.form.type,
@@ -34,7 +34,7 @@ class App extends React.Component {
     //add a new item to this.state.expenses
     this.setState({
       expense: expense,
-      expenses: [rows]
+      expenses: [... expense]
     })
   }
 
