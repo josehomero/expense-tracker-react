@@ -15,7 +15,7 @@ class App extends React.Component {
         description: "",
         amount: ""
       },
-      expense: null
+      expenses: []
     }
     this.submitted = this.submitted.bind(this)
   }
@@ -31,8 +31,10 @@ class App extends React.Component {
       amount: this.state.form.amount
     }
 
+    //add a new item to this.state.expenses
     this.setState({
-      expense: expense
+      expense: expense,
+      expenses: [rows]
     })
   }
 
@@ -93,7 +95,8 @@ class App extends React.Component {
         </form>
 
         {/*this.state.expense ? <TrAndTd type={this.state.expense.type} date={this.state.expense.date} description={this.state.expense.description} amount={this.state.expense.amount}/> : null */}
-      <Table expenses={this.state.form} />
+
+        <Table expenses={this.state.expenses} />
 
       </div>
     )

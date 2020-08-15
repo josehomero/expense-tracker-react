@@ -3,7 +3,12 @@ import React from "react"
 class Table extends React.Component {
 
     render () {
-        console.log(typeof this.props.expenses)
+
+        const rows = [];
+
+        for (let i= 0; i< this.props.expenses.length; i++) {
+          rows.push(<h1>Andy is cool</h1>)
+        }
 
         return (<div>
                     <table>
@@ -17,12 +22,7 @@ class Table extends React.Component {
             </tr>
           </thead>
           <tbody>
-          <tr>
-                <td>{this.props.expenses.type} </td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            {rows}
           </tbody>
         </table>
 
