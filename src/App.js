@@ -31,10 +31,10 @@ class App extends React.Component {
       amount: this.state.form.amount
     }
 
-    //add a new item to this.state.expenses
+
+    this.state.expenses.push(expense)
     this.setState({
-      expense: expense,
-      expenses: [... expense]
+      expense: expense
     })
   }
 
