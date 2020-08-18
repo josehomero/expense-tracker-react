@@ -31,11 +31,11 @@ class App extends React.Component {
       amount: this.state.form.amount
     }
 
-
     this.state.expenses.push(expense)
     this.setState({
       expense: expense
     })
+    e.target.reset()
   }
 
   changeDescription = (e) => {
