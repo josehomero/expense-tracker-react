@@ -22,7 +22,6 @@ class App extends React.Component {
 
   submitted = (e) => {
     e.preventDefault();
- 
 
     const expense = {
       type: this.state.form.type,
@@ -35,7 +34,16 @@ class App extends React.Component {
     this.setState({
       expense: expense
     })
-    e.target.reset()
+
+
+    this.setState({
+      form: {
+        type:'',
+        date:'',
+        description:'',
+        amount:''
+      }
+    })
   }
 
   changeDescription = (e) => {
