@@ -10,12 +10,13 @@ class App extends React.Component {
     super()
     this.state = {
       form: {
+        id:Date.now(),
         type: "",
         date: "",
         description: "",
         amount: ""
       },
-      expenses: []
+      expenses: [],
     }
     this.submitted = this.submitted.bind(this)
   }
@@ -38,6 +39,7 @@ class App extends React.Component {
 
     this.setState({
       form: {
+        id:Date.now(),
         type:'',
         date:'',
         description:'',
@@ -83,7 +85,6 @@ class App extends React.Component {
   }
 
   render() {
-
 
     return (
       <div className="App">
