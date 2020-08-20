@@ -7,7 +7,7 @@ class Table extends React.Component {
         const rows = [];
 
         for (let i= 0; i< this.props.expenses.length; i++) {
-        rows.push(<tr id={this.props.expenses.id}><td></td><td>{this.props.expenses[i].type}</td><td>{this.props.expenses[i].date}</td><td>{this.props.expenses[i].description}</td><td>{this.props.expenses[i].amount}</td><button>X</button></tr>)
+        rows.push(<tr id={this.props.expenses.id}><td></td><td>{this.props.expenses[i].type}</td><td>{this.props.expenses[i].date}</td><td>{this.props.expenses[i].description}</td><td>{this.props.expenses[i].amount}</td><button onClick={this.props.deleteButton}>X</button></tr>)
         }
 
         return (<div>

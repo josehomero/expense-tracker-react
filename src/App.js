@@ -19,6 +19,11 @@ class App extends React.Component {
       expenses: [],
     }
     this.submitted = this.submitted.bind(this)
+    this.deleteButton = this.deleteButton.bind(this)
+  }
+
+  deleteButton(e) {
+    console.log('clicked')
   }
 
   submitted = (e) => {
@@ -105,7 +110,7 @@ class App extends React.Component {
 
         {/*this.state.expense ? <TrAndTd type={this.state.expense.type} date={this.state.expense.date} description={this.state.expense.description} amount={this.state.expense.amount}/> : null */}
 
-        <Table expenses={this.state.expenses} />
+        <Table deleteButton={this.deleteButton} expenses={this.state.expenses} />
 
       </div>
     )
