@@ -27,7 +27,7 @@ class App extends React.Component {
     console.log(e.target.id)
 
 
-    const expenseCopy = expense.filter(function (exp) {
+    const expenseCopy = expenses.filter(function (exp) {
       if (exp.id !== e.target.id) {
         return exp
       }
@@ -39,7 +39,7 @@ class App extends React.Component {
     //???
     //sace the expenses into state
     this.setState({
-      expenses: expenseCopy
+     // expenses: expenseCopy
     })
   }
 
