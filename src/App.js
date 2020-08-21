@@ -27,19 +27,9 @@ class App extends React.Component {
     console.log(e.target.id)
 
 
-    const expenseCopy = expenses.filter(function (exp) {
-      if (exp.id !== e.target.id) {
-        return exp
-      }
-    })
-    //return exp if it doesn't match e.target
-    //search the copy of a matching object with the id
-    //??
-    //remove object from the copy of expenses
-    //???
-    //sace the expenses into state
+    const expenseCopy = this.state.expenses.filter((expense) => !expense.id)
     this.setState({
-     // expenses: expenseCopy
+      expenses: expenseCopy
     })
   }
 
