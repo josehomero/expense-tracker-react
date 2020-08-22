@@ -23,11 +23,10 @@ class App extends React.Component {
   }
 
   deleteButton(e) {
-
-    console.log(e.target.id)
-
-
-    const expenseCopy = this.state.expenses.filter((expense) => !expense.id)
+    const expenseCopy = this.state.expenses.filter((expense) => {
+      return expense.id !== parseInt(e.target.id)
+    })
+    
     this.setState({
       expenses: expenseCopy
     })
