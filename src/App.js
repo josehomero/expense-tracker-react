@@ -35,6 +35,11 @@ class App extends React.Component {
   submitted = (e) => {
     e.preventDefault();
 
+    if (this.state.form.type === '' || this.state.form.date === '' || this.state.form.description === '' || this.state.form.amount === '') {
+      alert("Please fill out all the information in the form!");
+      return;
+  }
+
     const expense = {
       id: Date.now(),
       type: this.state.form.type,
@@ -97,16 +102,24 @@ class App extends React.Component {
           <Header />
 
           <form onSubmit={this.submitted}>
-            <select name="type" value={this.state.form.type} onChange={this.changeType} >
-              <option value=''>Type</option>
-              <option value="card">Card</option>
-              <option value="cash">Cash</option>
-              <option value="other">Other</option>
-            </select>
-            <input name="date" type="text" placeholder="Date?" value={this.state.form.date} onChange={this.changeDate} />
-            <input name="description" type="text" placeholder="Where?" value={this.state.form.description} onChange={this.changeDescription} />
-            <input name="amount" type="text" placeholder="Amount?" value={this.state.form.amount} onChange={this.changeAmount} />
-            <button >Submit</button>
+            <div className='form-group col-md4'>
+              <select className='form-control' name="type" value={this.state.form.type} onChange={this.changeType} >
+                <option value=''>Type</option>
+                <option value="card">Card</option>
+                <option value="cash">Cash</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div className='form-row'>
+              <input className='form-control' name="date" type="text" placeholder="Date?" value={this.state.form.date} onChange={this.changeDate} />
+            </div>
+            <div className='form-row'>
+              <input className='form-control' name="description" type="text" placeholder="Where?" value={this.state.form.description} onChange={this.changeDescription} />
+            </div>
+            <div className='form-row'>
+              <input className='form-control' name="amount" type="text" placeholder="Amount?" value={this.state.form.amount} onChange={this.changeAmount} />
+            </div>
+            <button className='btn btn-primary'>Submit</button>
           </form>
 
           <Table deleteButton={this.deleteButton} expenses={this.state.expenses} />

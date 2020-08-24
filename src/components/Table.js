@@ -14,12 +14,12 @@ class Table extends React.Component {
           <td>{this.props.expenses[i].date}</td>
           <td>{this.props.expenses[i].description}</td>
           <td>{this.props.expenses[i].amount}</td>
-          <td><button id={this.props.expenses[i].id} onClick={this.props.deleteButton}>X</button></td>
+          <td><button className='btn btn-danger' id={this.props.expenses[i].id} onClick={this.props.deleteButton}>X</button></td>
         </tr>)
     }
 
     return (<div>
-      <table>
+      <table className='table'>
         <thead>
           <tr>
             <th></th>
