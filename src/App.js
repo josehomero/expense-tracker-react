@@ -3,6 +3,7 @@ import './App.css';
 
 import Header from './components/Header';
 import Table from './components/Table';
+import Form from './components/Form';
 
 
 class App extends React.Component {
@@ -11,18 +12,18 @@ class App extends React.Component {
     this.state = {
       form: {
         id: Date.now(),
-        type: "",
-        date: "",
-        description: "",
-        amount: ""
+        type: '',
+        date: '',
+        description: '',
+        amount: ''
       },
       expenses: [],
     }
-    this.submitted = this.submitted.bind(this)
-    this.deleteButton = this.deleteButton.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
-  deleteButton(e) {
+  handleDelete(e) {
     const expenseCopy = this.state.expenses.filter((expense) => {
       return expense.id !== parseInt(e.target.id)
     })
@@ -32,7 +33,7 @@ class App extends React.Component {
     })
   }
 
-  submitted = (e) => {
+  handleSubmit = (e) => {
     e.preventDefault();
 
     if (this.state.form.type === '' || this.state.form.date === '' || this.state.form.description === '' || this.state.form.amount === '') {
@@ -98,31 +99,17 @@ class App extends React.Component {
 
     render() {
       return (
-        <div className="App">
+        <div className="App m-5 p-5">
           <Header />
-
-          <form onSubmit={this.submitted}>
-            <div className='form-group col-md4'>
-              <select className='form-control' name="type" value={this.state.form.type} onChange={this.changeType} >
-                <option value=''>Type</option>
-                <option value="card">Card</option>
-                <option value="cash">Cash</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            <div className='form-row'>
-              <input className='form-control' name="date" type="text" placeholder="Date?" value={this.state.form.date} onChange={this.changeDate} />
-            </div>
-            <div className='form-row'>
-              <input className='form-control' name="description" type="text" placeholder="Where?" value={this.state.form.description} onChange={this.changeDescription} />
-            </div>
-            <div className='form-row'>
-              <input className='form-control' name="amount" type="text" placeholder="Amount?" value={this.state.form.amount} onChange={this.changeAmount} />
-            </div>
-            <button className='btn btn-primary'>Submit</button>
-          </form>
-
-          <Table deleteButton={this.deleteButton} expenses={this.state.expenses} />
+          <Form 
+            handleSubmit={this.handleSubmit}
+            handleDescChange={this.changeDescription}
+            handleTypeChange={this.changeType}
+            handleDateChange={this.changeDate}
+            handleAmountChange={this.changeAmount}
+            formDataState={this.state.form}
+          />
+          <Table deleteButton={this.handleDelete} expenses={this.state.expenses} />
 
         </div>
       )
